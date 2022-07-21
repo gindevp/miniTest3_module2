@@ -7,7 +7,7 @@ import model.Meat;
 import java.util.List;
 
 public class sum {
-    public static double sumAmout(List<Material> listMaterial) {
+    static double sumAmout(List<Material> listMaterial) {
         double sumAmount =0;
         for (Material x: listMaterial
         ) {
@@ -15,7 +15,7 @@ public class sum {
         }
         return sumAmount;
     }
-    public   static double sumRealMoney(List<Material> listMaterial){
+    static double sumRealMoney(List<Material> listMaterial){
         double sumRealMoney=0;
         for (Material x: listMaterial
         ) {

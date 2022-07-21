@@ -3,7 +3,7 @@ package views;
 import controller.add;
 import controller.edit;
 import controller.remove;
-import controller.sum;
+import controller.discount;
 import model.CrispyFlour;
 import model.Material;
 import model.Meat;
@@ -19,7 +19,8 @@ public class main {
     static final int CHOICEEDIT = 2;
     static final int CHOICEREMOVE = 3;
     static final int CHOICEDETAIL = 4;
-    static final int CHOICEEXIT = 5;
+    static final int CHOICEDISCOUNT = 5;
+    static final int CHOICEEXIT = 6;
 
     //data
     private static List<Material> listMaterial = new ArrayList<>();
@@ -43,27 +44,22 @@ public class main {
 
     public static void detailChoice() {
         System.out.println("\nDanh sách lựa chọn:");
-        System.out.println("1: Thêm vật liệu\n2: Sửa vật liệu\n3: Xóa vật liệu\n4: Show list vật liệu\n5: Exit");
+        System.out.println("1: Thêm vật liệu\n2: Sửa vật liệu\n3: Xóa vật liệu\n4: Show list vật liệu\n5: Tính chiết khấu ngày hôm nay của tất cả vật liệu\n6: Exit");
         System.out.println("Mời nhập lựa chọn:");
     }
 
     public static void main(String[] args) {
-        Discount(listMaterial);
+        discount.Discount(listMaterial);
         displayList();
         detailChoice();
         detailChoiceMaterial();
 
     }
 
-    private static void Discount(List<Material> listMaterial) {
-        System.out.println("Số tiền chiết khấu của tất cả vật liệu :"+(sum.sumAmout(listMaterial)-sum.sumRealMoney(listMaterial)));
-    }
-
-
 
     public static void choiceMaterialAdd() {
         System.out.println("BẠN ĐÃ CHỌN ADD:\n");
-        System.out.println("1: Thêm bột\n2:Thêm thịt\n3:Nhập lại lựa chọn trước đó");
+        System.out.println("1: Thêm bột\n2: Thêm thịt\n3: Nhập lại lựa chọn trước đó");
         int choice1 = scanner.nextInt();
         while (true) {
             if (choice1 == 1) {
@@ -111,11 +107,12 @@ public class main {
                 break;
             } else {
                 System.out.println("nhập lại đi:");
-                choice1= scanner.nextInt();
+                choice1 = scanner.nextInt();
             }
         }
     }
-    public static void detailChoiceMaterial(){
+
+    public static void detailChoiceMaterial() {
         while (true) {
             int choice = scanner.nextInt();
             switch (choice) {
@@ -160,6 +157,11 @@ public class main {
                 case CHOICEDETAIL:
                     //detail list
                     displayList();
+                    detailChoice();
+                    break;
+                case CHOICEDISCOUNT:
+                    //tinh discount
+                    discount.Discount(listMaterial);
                     break;
                 default:
                     System.out.println("mời bạn nhập lại:");
@@ -167,15 +169,15 @@ public class main {
             }
         }
     }
-    public static void displayList(){
+
+    public static void displayList() {
         System.out.println("List vật liệu:\n");
         int count = 0;
         for (Material x : listMaterial
         ) {
-            System.out.println("index:" + count + ": " + x);
-            System.out.println("Ngay het han : " + x.getExpiryDate());
+            System.out.println("index: " + count + ": " + x);
+            System.out.println("          " + "Ngay het han : " + x.getExpiryDate());
             count++;
         }
-        detailChoice();
     }
 }
