@@ -5,6 +5,7 @@ import model.Material;
 import java.util.List;
 
 public class display {
+    //render list
     public static void displayList(List<Material> listMaterial) {
         System.out.println("List vật liệu:\n");
         int count = 0;

@@ -5,6 +5,7 @@ import controller.edit;
 import controller.remove;
 import model.CrispyFlour;
 import model.Material;
+import model.Meat;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -12,6 +13,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class choiceMaterial {
+    //hằng
     static final int CHOICEADD = 1;
     static final int CHOICEEDIT = 2;
     static final int CHOICEREMOVE = 3;
@@ -33,6 +35,8 @@ public class choiceMaterial {
                 case CHOICEEDIT:
                     System.out.println("Mời nhập index vật liệu cần sửa: ");
                     int indexEdit = scanner.nextInt();
+                    System.out.println("Phần tử muốn edit:"+listMaterial.get(indexEdit));
+                    boolean type= listMaterial.get(indexEdit) instanceof Meat;
                     System.out.println("Mời nhập id:");
                     String id = scanner1.nextLine();
                     System.out.println("Mời nhập name:");
@@ -46,11 +50,19 @@ public class choiceMaterial {
                     LocalDate localDate = LocalDate.of(year, month, day);
                     System.out.println("Mời nhập giá:");
                     int cost = scanner.nextInt();
-                    System.out.println("Mời nhập số lượng:");
-                    double quantity = scanner.nextDouble();
-                    CrispyFlour cf = new CrispyFlour(id, name, localDate, cost, quantity);
-                    edit.editMaterial(listMaterial, indexEdit, cf);
-                    detailChoice.detailChoice();
+                        if(!type){
+                            System.out.println("Mời nhập số lượng:");
+                            double quantity = scanner.nextDouble();
+                            CrispyFlour cf = new CrispyFlour(id, name, localDate, cost, quantity);
+                            edit.editMaterial(listMaterial, indexEdit, cf);
+                            detailChoice.detailChoice();
+                        }else {
+                            System.out.println("Mời nhập weigth:");
+                            double weight= scanner.nextDouble();
+                            Meat m = new Meat(id, name, localDate, cost, weight);
+                            edit.editMaterial(listMaterial, indexEdit, m);
+                            detailChoice.detailChoice();
+                        }
                     //edit
                     break;
                 case CHOICEREMOVE:

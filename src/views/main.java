@@ -1,8 +1,5 @@
 package views;
 
-import controller.add;
-import controller.edit;
-import controller.remove;
 import controller.discount;
 import model.CrispyFlour;
 import model.Material;
@@ -11,11 +8,10 @@ import model.Meat;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class main {
     private static List<Material> listMaterial = new ArrayList<>();
-
+//data
     static {
 
         listMaterial.add(new CrispyFlour("1", "Bột ngô", LocalDate.of(2022, 7, 2), 9, 2));
@@ -31,13 +27,11 @@ public class main {
         listMaterial.add(new Meat("10", "Thịt chuột", LocalDate.of(2022, 7, 14), 9, 9));
     }
 
-
+//thưc thi
     public static void main(String[] args) {
         discount.Discount(listMaterial);
         display.displayList(listMaterial);
         detailChoice.detailChoice();
         choiceMaterial.detailChoiceMaterial(listMaterial);
-
     }
-
 }
