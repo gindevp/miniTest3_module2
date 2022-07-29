@@ -1,13 +1,9 @@
 package views;
 
 import controller.add;
-import model.CrispyFlour;
-import model.Material;
-import model.Meat;
-
+import model.*;
 import java.time.LocalDate;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class choiceAdd {
     private static Scanner scanner = new Scanner(System.in);

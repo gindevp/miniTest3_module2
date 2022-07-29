@@ -1,17 +1,9 @@
 package views;
 
-import controller.discount;
-import controller.edit;
-import controller.remove;
-import model.CrispyFlour;
-import model.Material;
-import model.Meat;
-
+import controller.*;
+import model.*;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-
+import java.util.*;
 public class choiceMaterial {
     //hằng
     static final int CHOICEADD = 1;
@@ -57,7 +49,7 @@ public class choiceMaterial {
                             edit.editMaterial(listMaterial, indexEdit, cf);
                             detailChoice.detailChoice();
                         }else {
-                            System.out.println("Mời nhập weigth:");
+                            System.out.println("Mời nhập cân nặng:");
                             double weight= scanner.nextDouble();
                             Meat m = new Meat(id, name, localDate, cost, weight);
                             edit.editMaterial(listMaterial, indexEdit, m);
@@ -69,7 +61,7 @@ public class choiceMaterial {
                     //remove
                     System.out.println("Mời nhập index vật liệu cần xóa: ");
                     int indexRemote = scanner.nextInt();
-                    remove.remoteMaterial(listMaterial, indexRemote);
+                    remove.removeMaterial(listMaterial, indexRemote);
                     detailChoice.detailChoice();
                     break;
                 case CHOICEEXIT:
@@ -84,6 +76,7 @@ public class choiceMaterial {
                 case CHOICEDISCOUNT:
                     //tinh discount
                     discount.Discount(listMaterial);
+                    System.out.println("Mời nhập lựa chọn:");
                     break;
                 default:
                     System.out.println("mời bạn nhập lại:");

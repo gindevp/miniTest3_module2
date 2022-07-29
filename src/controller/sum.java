@@ -1,9 +1,6 @@
 package controller;
 
-import model.CrispyFlour;
-import model.Material;
-import model.Meat;
-
+import model.*;
 import java.util.List;
 
 public class sum {

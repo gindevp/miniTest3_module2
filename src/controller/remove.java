@@ -1,13 +1,14 @@
 package controller;
 
 import model.Material;
+import storage.MaterialFile;
 
 import java.util.List;
 
 public class remove {
-    public static List<Material> remoteMaterial(List<Material> materialList, int index){
+    public static void removeMaterial(List<Material> materialList, int index){
         materialList.remove(index);
-        return materialList;
+        MaterialFile.writeFile(materialList);
     }
 
 }
