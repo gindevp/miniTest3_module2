@@ -3,7 +3,7 @@ package controller;
 import model.*;
 import java.util.List;
 
-public class sum {
+public class Sum {
     static double sumAmout(List<Material> listMaterial) {
         double sumAmount =0;
         for (Material x: listMaterial

@@ -1,11 +1,11 @@
 package views;
 
-import controller.add;
+import controller.Add;
 import model.*;
 import java.time.LocalDate;
 import java.util.*;
 
-public class choiceAdd {
+public class ChoiceAdd {
     private static Scanner scanner = new Scanner(System.in);
     private static Scanner scanner1 = new Scanner(System.in);
     public static void choiceMaterialAdd(List<Material> listMaterial) {
@@ -30,8 +30,8 @@ public class choiceAdd {
                 System.out.println("Mời nhập số lượng:");
                 double quantity = scanner.nextDouble();
                 CrispyFlour cf = new CrispyFlour(id, name, localDate, cost, quantity);
-                add.addMaterial(listMaterial, cf);
-                detailChoice.detailChoice();
+                Add.addMaterial(listMaterial, cf);
+                DetailChoice.detailChoice();
                 break;
             } else if (choice1 == 2) {
                 System.out.println("Mời nhập id:");
@@ -50,11 +50,11 @@ public class choiceAdd {
                 System.out.println("Mời nhập cân nặng:");
                 double weight = scanner.nextDouble();
                 Meat cf = new Meat(id, name, localDate, cost, weight);
-                add.addMaterial(listMaterial, cf);
-                detailChoice.detailChoice();
+                Add.addMaterial(listMaterial, cf);
+                DetailChoice.detailChoice();
                 break;
             } else if (choice1 == 3) {
-                detailChoice.detailChoice();
+                DetailChoice.detailChoice();
                 break;
             } else {
                 System.out.println("nhập lại đi:");

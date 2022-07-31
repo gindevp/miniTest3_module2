@@ -5,7 +5,7 @@ import storage.MaterialFile;
 
 import java.util.List;
 
-public class edit {
+public class Edit {
     public static void editMaterial(List<Material> materialList, int index, Material material){
         materialList.set(index,material);
         MaterialFile.writeFile(materialList);

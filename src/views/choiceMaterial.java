@@ -1,10 +1,11 @@
 package views;
 
 import controller.*;
+import controller.Discount;
 import model.*;
 import java.time.LocalDate;
 import java.util.*;
-public class choiceMaterial {
+public class ChoiceMaterial {
     //hằng
     static final int CHOICEADD = 1;
     static final int CHOICEEDIT = 2;
@@ -22,7 +23,7 @@ public class choiceMaterial {
             switch (choice) {
                 case CHOICEADD:
                     //add
-                    choiceAdd.choiceMaterialAdd(listMaterial);
+                    ChoiceAdd.choiceMaterialAdd(listMaterial);
                     break;
                 case CHOICEEDIT:
                     System.out.println("Mời nhập index vật liệu cần sửa: ");
@@ -46,14 +47,14 @@ public class choiceMaterial {
                             System.out.println("Mời nhập số lượng:");
                             double quantity = scanner.nextDouble();
                             CrispyFlour cf = new CrispyFlour(id, name, localDate, cost, quantity);
-                            edit.editMaterial(listMaterial, indexEdit, cf);
-                            detailChoice.detailChoice();
+                            Edit.editMaterial(listMaterial, indexEdit, cf);
+                            DetailChoice.detailChoice();
                         }else {
                             System.out.println("Mời nhập cân nặng:");
                             double weight= scanner.nextDouble();
                             Meat m = new Meat(id, name, localDate, cost, weight);
-                            edit.editMaterial(listMaterial, indexEdit, m);
-                            detailChoice.detailChoice();
+                            Edit.editMaterial(listMaterial, indexEdit, m);
+                            DetailChoice.detailChoice();
                         }
                     //edit
                     break;
@@ -61,8 +62,8 @@ public class choiceMaterial {
                     //remove
                     System.out.println("Mời nhập index vật liệu cần xóa: ");
                     int indexRemote = scanner.nextInt();
-                    remove.removeMaterial(listMaterial, indexRemote);
-                    detailChoice.detailChoice();
+                    Remove.removeMaterial(listMaterial, indexRemote);
+                    DetailChoice.detailChoice();
                     break;
                 case CHOICEEXIT:
                     //exit
@@ -70,12 +71,12 @@ public class choiceMaterial {
                     break;
                 case CHOICEDETAIL:
                     //detail list
-                    display.displayList(listMaterial);
-                    detailChoice.detailChoice();
+                    Display.displayList(listMaterial);
+                    DetailChoice.detailChoice();
                     break;
                 case CHOICEDISCOUNT:
                     //tinh discount
-                    discount.Discount(listMaterial);
+                    Discount.discount(listMaterial);
                     System.out.println("Mời nhập lựa chọn:");
                     break;
                 default:

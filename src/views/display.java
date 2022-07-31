@@ -4,7 +4,7 @@ import model.Material;
 
 import java.util.List;
 
-public class display {
+public class Display {
     //render list
     public static void displayList(List<Material> listMaterial) {
         System.out.println("List vật liệu:\n");

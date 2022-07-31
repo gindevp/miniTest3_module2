@@ -1,13 +1,12 @@
 package views;
 
-import controller.discount;
+import controller.Discount;
 import model.*;
 import storage.MaterialFile;
 
-import java.time.LocalDate;
 import java.util.*;
 
-public class main {
+public class Main {
     private static List<Material> listMaterial = MaterialFile.readFile();
 //data
 //    static {
@@ -27,9 +26,9 @@ public class main {
 
 //thưc thi
     public static void main(String[] args) {
-        discount.Discount(listMaterial);
-        display.displayList(listMaterial);
-        detailChoice.detailChoice();
-        choiceMaterial.detailChoiceMaterial(listMaterial);
+        Discount.discount(listMaterial);
+        Display.displayList(listMaterial);
+        DetailChoice.detailChoice();
+        ChoiceMaterial.detailChoiceMaterial(listMaterial);
     }
 }
