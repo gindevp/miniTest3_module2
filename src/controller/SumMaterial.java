@@ -3,8 +3,8 @@ package controller;
 import model.*;
 import java.util.List;
 
-public class Sum {
-    static double sumAmout(List<Material> listMaterial) {
+public class SumMaterial {
+    public static double sumAmout(List<Material> listMaterial) {
         double sumAmount =0;
         for (Material x: listMaterial
         ) {
@@ -12,7 +12,7 @@ public class Sum {
         }
         return sumAmount;
     }
-    static double sumRealMoney(List<Material> listMaterial){
+    public static double sumRealMoney(List<Material> listMaterial){
         double sumRealMoney=0;
         for (Material x: listMaterial
         ) {

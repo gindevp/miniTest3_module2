@@ -1,13 +1,12 @@
 package views;
 
-import controller.Discount;
 import model.*;
 import storage.MaterialFile;
 
 import java.util.*;
 
 public class Main {
-    private static List<Material> listMaterial = MaterialFile.readFile();
+    private static List<Material> listMaterial = MaterialFile.readFile("Material.dat");
 //data
 //    static {
 //

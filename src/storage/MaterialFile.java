@@ -1,23 +1,17 @@
 package storage;
-
-import model.CrispyFlour;
 import model.Material;
-import model.Meat;
-
 import java.io.*;
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 public class MaterialFile {
 
-    public static void writeFile(List<Material> materials){
+    public static void writeFile(List<Material> materials, String file){
         try {
-            FileOutputStream fileOutputStream = new FileOutputStream("Material.dat");
-            ObjectOutputStream ost = new ObjectOutputStream(fileOutputStream);
+            FileOutputStream fos = new FileOutputStream(file);
+            ObjectOutputStream ost = new ObjectOutputStream(fos);
             ost.writeObject(materials);
             ost.close();
-            fileOutputStream.close();
+            fos.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -25,9 +19,9 @@ public class MaterialFile {
         }
     }
 
-    public static List<Material> readFile(){
+    public static List<Material> readFile(String file){
         try {
-            FileInputStream fis = new FileInputStream("Material.dat");
+            FileInputStream fis = new FileInputStream(file);
             ObjectInputStream ois = new ObjectInputStream(fis);
             Object ob = ois.readObject();
             List<Material> materials = (List<Material>) ob;
@@ -59,7 +53,7 @@ public class MaterialFile {
 //        listMaterial.add(new Meat("10", "Thịt chuột", LocalDate.of(2022, 7, 14), 9, 9));
 //
 //        writeFile(listMaterial);
-        List<Material> listMaterial = readFile();
+        List<Material> listMaterial = readFile("Material.dat");
         System.out.println(listMaterial);
     }
 }

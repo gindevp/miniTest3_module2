@@ -1,9 +1,7 @@
 package views;
 
 import controller.*;
-import controller.Discount;
 import model.*;
-import java.time.LocalDate;
 import java.util.*;
 public class ChoiceMaterial {
     //hằng
@@ -13,6 +11,9 @@ public class ChoiceMaterial {
     static final int CHOICEDETAIL = 4;
     static final int CHOICEDISCOUNT = 5;
     static final int CHOICEEXIT = 6;
+    static final void exit() {
+        System.exit(0);
+    }
 
     //data
     private static Scanner scanner = new Scanner(System.in);
@@ -26,48 +27,16 @@ public class ChoiceMaterial {
                     ChoiceAdd.choiceMaterialAdd(listMaterial);
                     break;
                 case CHOICEEDIT:
-                    System.out.println("Mời nhập index vật liệu cần sửa: ");
-                    int indexEdit = scanner.nextInt();
-                    System.out.println("Phần tử muốn edit:"+listMaterial.get(indexEdit));
-                    boolean type= listMaterial.get(indexEdit) instanceof Meat;
-                    System.out.println("Mời nhập id:");
-                    String id = scanner1.nextLine();
-                    System.out.println("Mời nhập name:");
-                    String name = scanner1.nextLine();
-                    System.out.println("Mời nhập day:");
-                    int day = scanner.nextInt();
-                    System.out.println("Mời nhập tháng:");
-                    int month = scanner.nextInt();
-                    System.out.println("Mời nhập năm:");
-                    int year = scanner.nextInt();
-                    LocalDate localDate = LocalDate.of(year, month, day);
-                    System.out.println("Mời nhập giá:");
-                    int cost = scanner.nextInt();
-                        if(!type){
-                            System.out.println("Mời nhập số lượng:");
-                            double quantity = scanner.nextDouble();
-                            CrispyFlour cf = new CrispyFlour(id, name, localDate, cost, quantity);
-                            Edit.editMaterial(listMaterial, indexEdit, cf);
-                            DetailChoice.detailChoice();
-                        }else {
-                            System.out.println("Mời nhập cân nặng:");
-                            double weight= scanner.nextDouble();
-                            Meat m = new Meat(id, name, localDate, cost, weight);
-                            Edit.editMaterial(listMaterial, indexEdit, m);
-                            DetailChoice.detailChoice();
-                        }
+                    ChoiceEdit.choiceEdit(listMaterial);
                     //edit
                     break;
                 case CHOICEREMOVE:
                     //remove
-                    System.out.println("Mời nhập index vật liệu cần xóa: ");
-                    int indexRemote = scanner.nextInt();
-                    Remove.removeMaterial(listMaterial, indexRemote);
-                    DetailChoice.detailChoice();
+                    ChoiceRemove.choiceRemove(listMaterial);
                     break;
                 case CHOICEEXIT:
                     //exit
-                    System.exit(0);
+                    exit();
                     break;
                 case CHOICEDETAIL:
                     //detail list
@@ -85,5 +54,8 @@ public class ChoiceMaterial {
             }
         }
     }
+
+
+
 
 }

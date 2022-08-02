@@ -1,6 +1,6 @@
 package views;
 
-import controller.Add;
+import controller.AddMaterial;
 import model.*;
 import java.time.LocalDate;
 import java.util.*;
@@ -30,7 +30,7 @@ public class ChoiceAdd {
                 System.out.println("Mời nhập số lượng:");
                 double quantity = scanner.nextDouble();
                 CrispyFlour cf = new CrispyFlour(id, name, localDate, cost, quantity);
-                Add.addMaterial(listMaterial, cf);
+                AddMaterial.addMaterial(listMaterial, cf);
                 DetailChoice.detailChoice();
                 break;
             } else if (choice1 == 2) {
@@ -50,7 +50,7 @@ public class ChoiceAdd {
                 System.out.println("Mời nhập cân nặng:");
                 double weight = scanner.nextDouble();
                 Meat cf = new Meat(id, name, localDate, cost, weight);
-                Add.addMaterial(listMaterial, cf);
+                AddMaterial.addMaterial(listMaterial, cf);
                 DetailChoice.detailChoice();
                 break;
             } else if (choice1 == 3) {
